@@ -1,2 +1,2 @@
 # Public Website
-View up on [http://plzdontstalk.me](http://plzdontstalk.me).
+View up on [http://amorgan.me](http://amorgan.me).
