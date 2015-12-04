@@ -1,2 +1,2 @@
 # Public Website
-View up on [http://amorgan.me](http://amorgan.me).
+View up on [https://amorgan.me](http://amorgan.me).
