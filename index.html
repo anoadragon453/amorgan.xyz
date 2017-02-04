@@ -6,7 +6,6 @@
 
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
     <!--Favicons-->
     <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-touch-icon-57x57.png">
@@ -37,9 +36,9 @@
   <body>
 
     <header>
-      <div class="container">
+      <div style="text-align: center" class="container">
         <h1>Andrew Morgan {anoa}</h1>
-        <h2>iOS Developer and full stack hobbiest.</h2>
+        <h2>iOS and Web Developer; full stack hobbiest</h2>
 
         <section id="downloads">
           <a href="https://github.com/anoadragon453" class="btn btn-github"><span class="icon"></span>Check out my stuff on GitHub</a>
@@ -47,6 +46,7 @@
       </div>
     </header>
 
+    <canvas id="c"></canvas>
     <div class="container">
       <section id="main_content">
         <h3>
@@ -55,27 +55,70 @@
 
 <h3>Introduction</h3>
 
-<p> This website will serve as a page for information about me and my current projects. Information is available below if you would like to get in contact.<p>
+<p> This website serves as a page for information about me and my current projects. Information is available below if you would like to get in contact.<p>
 
 <h3>About me</h3>
 
-<p>I'm a self-employed Software Developer currently in my freshman year at the University of California Merced. I am currently working towards my degree in Computer Science and Engineering. I am fluent in Objective-C (iOS), Java, Python, PHP, HTML/CSS and Bash scripting. I am currently learning C, C++ and MIPS assembly.</p>
+<p>I'm a self-employed Software Developer currently in my sophomore year at the University of California Merced. I am working towards my degree in Computer Science and Engineering and am fluent in Objective-C (iOS), Java, Python, PHP, HTML/CSS and Bash scripting. I know some C, C++ and MIPS assembly. Learning <a href="https://golang.org/">Go</a> and <a href="https://www.rust-lang.org/">Rust</a>.</p>
 
-<h3>Website Content</h3>
+<h3>Links</h3>
 
-<p><a href="owncloud/">Owncloud instance</a>.</p>
+<p><a href="https://keybase.io/anoa">Keybase.io profile</a>.</p>
 
 <p>Tor node details accesible <a href="tor/">here</a>.</p>
 <h3>Contact info</h3>
 
-<p>Get in touch with me at <img style="float:left; margin-top:-23px;margin-left:230px" src="images/e.png" alt="kontakt" height="22" width="300"></p>
+<p>Get in touch with me at <!--<img style="float:left; margin-top:-23px;margin-left:230px" src="" alt="kontakt" height="22" width="300">-->[anoa at open mail box dot org].</p>
 
 <p>If you like, my PGP can be found <a href="pgp.html">here</a>.</p>
 
-<p>Donate Bitcoin to 1EgFbF37s55dh5f6mRyQPAJu6JDUYC1ArB</p>
+<p>I am also on <a href="https://twitter.com/anoa453">Twitter</a>, <a href="http://127.0.0.1:43110/Me.ZeroNetwork.bit/?Profile/12h51ug6CcntU2aiBjhP8Ns2e5VypbWWtv/16ayEL9rXHKdbhoFu1LUanUaPVrzRVe331/andrewm@zeroid.bit">ZeroMe</a> and <a href="https://toxme.io/u/andrew">Tox</a>.
+<h3>Donate</h3>
+<p> BTC: 1784zG6jxnp1FVbrk8GoJwrzradxLdyYeX (<a href="https://keybase.io/anoa">updated</a>)</p>
+<p> ZEC: t1bQ5gsdFcsTQCeUeD7vAfj27Mf2mrUGqtu</p>
 
-<p>I am also on <a href="https://twitter.com/anoa453">Twitter</a> and <a href="https://diasp.org/people/7e0f7740e7270132973d00259069449e">Diaspora</a>.
       </section>
+
+<script type="text/javascript">
+        var c = document.getElementById("c");
+        c.height = window.innerHeight;
+        c.width = window.innerWidth;
+
+        var drop_size = 12;
+        var columns = c.width/drop_size;
+
+        var chinese = "ムタ二コク1234567890シモラキリエスハヌトユABCDEF";
+        chinese = chinese.split("");
+
+        var drops = [];
+        for(var i = 0; i < columns; i++)
+            drops[i] = 1; //y coordinate - same for everyone at the starting. The index contains the x coordinate
+
+        ctx = c.getContext('2d');
+
+        function draw()
+        {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, c.width, c.height);
+
+            ctx.fillStyle = "#0f0";
+            ctx.font= drop_size + "px arial";
+            for(var i = 0; i < drops.length; i++)
+            {
+                text = chinese[Math.floor(Math.random()*chinese.length)];
+                ctx.fillText(text, i*drop_size, drops[i]*drop_size);
+
+                if(drops[i]*drop_size > c.height && Math.random() > 0.975)
+                    drops[i] = 0;
+
+                drops[i]++;
+            }
+
+        }
+
+        setInterval(draw, 33);
+
+    </script>
     </div>
 
   </body>

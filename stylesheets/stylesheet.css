@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #151515 url("../images/bkg.png") 0 0;
+  /*background: #151515 url("../images/bkg.png") 0 0;*/
   color: #eaeaea;
   font: 16px;
   line-height: 1.5;
@@ -11,9 +11,23 @@ body {
 /* General & 'Reset' Stuff */
 
 .container {
+  background: #151515 url("../images/bkg.png") 0 0;
   width: 90%;
   max-width: 600px;
   margin: 0 auto;
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+}
+
+#c {
+position: fixed;
+z-index: -1;
+top: 0;
+left: 0;
 }
 
 section {
@@ -214,7 +228,7 @@ hr {
   width: 16px;
   height: 16px;
   margin: 1px 8px 0 0;
-  float: left;
+  float: center;
 }
 
 .btn-github .icon {
